@@ -10,6 +10,10 @@
         <link rel="icon" href="<?php echo base_url(); ?>assets/img/uady.png" />
     </head>   
     <body>
+        <?php
+        $usuario = $this->session->userdata('usuario');
+        if(empty($usuario)) redirect('Login/logout');
+        ?>
         <div class="container-fluid">
             <header class="row justify-content-center">
                 <div class="col-12 text-center mt-3">

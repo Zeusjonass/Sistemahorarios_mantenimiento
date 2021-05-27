@@ -25,6 +25,10 @@
         </script>
     </head>
     <body>
+        <?php
+        $usuario = $this->session->userdata('usuario');
+        if(empty($usuario)) redirect('Login/logout');
+        ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 header text-center mt-3 mb-3">

@@ -10,6 +10,10 @@
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     </head>   
     <body>
+        <?php
+        $usuario = $this->session->userdata('usuario');
+        if(empty($usuario)) redirect('Login/logout');
+        ?>
         <div class="container-fluid">
             <div class="row justify-content-center">
                 <div class="col-12 text-center header mb-5 mt-3">

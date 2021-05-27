@@ -47,6 +47,10 @@
         </script>
 </head>
 <body>
+	<?php
+	$usuario = $this->session->userdata('usuario');
+	if(empty($id)) redirect('Login/logout');
+	?>
 	<div class="container-fluid min-vh-100">
 		<div class="row justify-content-center">
 			<div class="col-12 text-center mt-3">
