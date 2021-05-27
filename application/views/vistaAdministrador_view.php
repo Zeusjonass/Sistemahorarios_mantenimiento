@@ -20,7 +20,14 @@
                     alert("Otro grupo tiene el horario deseado");
                 }else if(num==5){
                     alert("Se actualizó el horario de manera correcta");
+                }else if(num==6){
+                    alert("Se guardó al estudiante correctamente");
+                }else if(num==7){
+                    alert("Se guardó al profesor correctamente");
+                }else if(num==8){
+                    alert("Ya existe un usuario con este id de acceso");
                 }
+
             }
 
             function verClases(row){
@@ -80,6 +87,12 @@
                 <div class="col-12 text-center">
                     <form action="<?php echo base_url(); ?>index.php/administrador/crearClase" method="GET">
                         <button type="submit" class="btn btn-primary btn-md text-center">Registrar Nuevo Horario</button>
+                    </form><br>
+                    <form action="<?php echo base_url(); ?>index.php/administrador/verAltaEstudiante" method="GET">
+                        <button type="submit" class="btn btn-info btn-md text-center">Dar de Alta Estudiante</button>
+                    </form><br>
+                    <form action="<?php echo base_url(); ?>index.php/administrador/verAltaProfesor" method="GET">
+                        <button type="submit" class="btn btn-info btn-md text-center">Dar de Alta Profesor</button>
                     </form>
                 </div>
             </div>

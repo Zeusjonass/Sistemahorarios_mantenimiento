@@ -120,4 +120,39 @@ class Administrador_model extends CI_model{
         $query = $this->db->get_where('clase', array('HoraInicio' => $horaInicio, 'HoraFin' => $horaFin, 'idSalon' => $salon,'idCurso' => $curso, 'Dia' => $dia));
         return $query;
     }
+
+    public function guardarEstudiante($NomAlum, $Licenciatura, $idUsuario, $Password){
+        $query = $this->db->get_where('usuarios', array('idUsuario' => $idUsuario));
+        if($query->num_rows() > 0) return false;
+        $data = array(  
+            'idUsuario' => $idUsuario,
+            'Password' => $Password, 
+            'Rol' => 3
+        );
+        $this->db->insert('usuarios', $data);
+        $data = array(  
+            'NomAlum' => $NomAlum,
+            'Licenciatura' => $Licenciatura, 
+            'idUsuario' => $idUsuario
+        );
+        $this->db->insert('alumno', $data);
+        return true;
+    }
+
+    public function guardarProfesor($NomProf, $idUsuario, $Password){
+        $query = $this->db->get_where('usuarios', array('idUsuario' => $idUsuario));
+        if($query->num_rows() > 0) return false;
+        $data = array(  
+            'idUsuario' => $idUsuario,
+            'Password' => $Password, 
+            'Rol' => 2
+        );
+        $this->db->insert('usuarios', $data);
+        $data = array(  
+            'NomProf' => $NomProf,
+            'idUsuario' => $idUsuario
+        );
+        $this->db->insert('profesor', $data);
+        return true;
+    }
 }

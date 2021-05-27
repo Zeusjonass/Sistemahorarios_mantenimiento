@@ -147,5 +147,36 @@ class Administrador extends CI_Controller{
             }
         } 
     }
+
+    public function verAltaEstudiante()  {  
+        $this->load->view('altaEstudiante_view');  
+    } 
+
+    public function verAltaProfesor()  {  
+        $this->load->view('altaProfesor_view');  
+    } 
+
+    public function altaEstudiante() {
+        $this->load->model('administrador_model');
+        $NomAlum = $this->input->post('NomAlum'); 
+        $Licenciatura = $this->input->post('Licenciatura'); 
+        $idUsuario = $this->input->post('idUsuario'); 
+        $Password = $this->input->post('Password');
+        $this->administrador_model->guardarEstudiante($NomAlum, $Licenciatura, $idUsuario, $Password)? $data['error'] = 6 : $data['error'] = 8;
+        $data['dataTable'] = $this->administrador_model->getAdminTable(); 
+        $data['dataClases'] = $this->administrador_model->getAdminClases(); 
+        $this->load->view('vistaAdministrador_view', $data);  
+    }
+
+    public function altaProfesor() {
+        $this->load->model('administrador_model');
+        $NomProf = $this->input->post('NomProf'); 
+        $idUsuario = $this->input->post('idUsuario'); 
+        $Password = $this->input->post('Password');
+        $this->administrador_model->guardarProfesor($NomProf, $idUsuario, $Password)? $data['error'] = 7 : $data['error'] = 8;
+        $data['dataTable'] = $this->administrador_model->getAdminTable(); 
+        $data['dataClases'] = $this->administrador_model->getAdminClases(); 
+        $this->load->view('vistaAdministrador_view', $data);  
+    }
 }
 ?>

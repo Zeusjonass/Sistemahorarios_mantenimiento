@@ -21,6 +21,10 @@
         </script>
     </head>   
     <body>
+        <?php
+        $usuario = $this->session->userdata('usuario');
+        if(empty($usuario)) redirect('Login/logout');
+        ?>
         <?php $cursoObtenido = $dataCurso->row();?>
         <div class="container-fluid ">
         	<div class="row">
