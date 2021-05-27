@@ -1,0 +1,67 @@
+    *{
+        padding: 0;
+        margin: 0;
+        font-family: 'Roboto', sans-serif;
+        font-weight: 100;
+    }
+
+    body{
+
+        background: url('../img/UADY.jpg') no-repeat center center fixed;
+        -webkit-background-size: cover;
+        -moz-background-size: cover;
+        background-size: cover;
+        -o-background-size: cover;
+        backdrop-filter: blur(10px);
+    }
+
+    .table{
+
+        background-color: rgba(0,0,0,.8);
+        border-radius: 15px;
+        text-align: justify;
+    }
+
+    .table tr{
+
+        color: white;
+    }
+
+    .table tr:hover{
+
+        background-color: black ;
+    }
+
+    .table tr th{
+
+        border-bottom-left-radius: 15px;
+        border-top-left-radius: 15px;
+        border:0;
+
+    }
+    .table tr th p{
+        
+        margin: 0;
+    }
+
+    .table tr td{
+
+        border:0;
+    }
+
+    .table tr td label{
+
+        padding: 10px;
+    }
+
+    .table tr td label:hover{
+        
+        cursor: pointer;
+    }
+
+    .header h4{
+        
+        font-size: 32px;
+        font-weight: 600;
+
+    }
