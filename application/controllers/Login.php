@@ -46,7 +46,8 @@ class Login extends CI_Controller{
         } 
     } 
 
-    public function logout(){    
+    public function logout(){  
+        $this->load->model('login_model');  
         $this->login_model->logout();
         $this->index();  
     }  

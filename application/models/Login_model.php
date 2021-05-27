@@ -30,7 +30,7 @@ class Login_model extends CI_model{
         $newdata = array(
             'usuario'  =>'',
             'rol'  =>'',
-            'logged_in' => FALSE,
+            'logged_in' => FALSE
            );
         $this->session->unset_userdata($newdata);
         $this->session->sess_destroy(); 
