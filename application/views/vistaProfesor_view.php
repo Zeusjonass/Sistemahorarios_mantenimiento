@@ -31,7 +31,7 @@
                             <?php 
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Lunes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
                             ?>
@@ -41,7 +41,7 @@
                             <?php 
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Martes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
                             ?>
@@ -51,7 +51,7 @@
                             <?php
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Miercoles') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
                             ?>
@@ -61,7 +61,7 @@
                             <?php 
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Jueves') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
                             ?>
@@ -71,13 +71,21 @@
                             <?php 
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Viernes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
                             ?>
                         </tr>
                     </table>
                 </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <form action="<?php echo base_url(); ?>index.php/archivo/horarioProfesorPDF" method="POST">
+                    <input type="hidden" value="<?php echo $id; ?>" name="id">
+                    <button type="submit" class="btn btn-danger btn-md text-center">Descargar PDF</button>
+                </form><br>
             </div>
         </div>
     </body>

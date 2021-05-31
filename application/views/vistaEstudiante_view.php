@@ -81,6 +81,14 @@
                 </div>
             </div>
         </div>
+        <div class="row">
+            <div class="col-12 text-center">
+                <form action="<?php echo base_url(); ?>index.php/archivo/horarioEstudiantePDF" method="POST">
+                    <input type="hidden" value="<?php echo $id; ?>" name="id">
+                    <button type="submit" class="btn btn-danger btn-md text-center">Descargar PDF</button>
+                </form><br>
+            </div>
+        </div>
     </body>
 </html>
     

@@ -42,10 +42,6 @@
         </style>
     </head>
     <body>
-        <?php
-        $usuario = $this->session->userdata('usuario');
-        if(empty($usuario)) redirect('Login/logout');
-        ?>
         <div class="container min-vh-100">        
             <div class="form-row h-100 justify-content-center ">
                 <div class="col-4 text-center my-auto">

@@ -26,6 +26,7 @@ class Login extends CI_Controller{
             case 2:
                 $this->load->model('profesor_model');
                 $id = $this->profesor_model->getId($usuario);
+                $data['id'] = $id;
                 $data['nombre'] = $this->profesor_model->getNombre($id);
                 $data['dataTable'] = $this->profesor_model->getHorario($id);  
                 $this->load->view('vistaProfesor_view', $data);  
@@ -34,6 +35,7 @@ class Login extends CI_Controller{
             case 3:
                 $this->load->model('estudiante_model');
                 $id = $this->estudiante_model->getId($usuario);
+                $data['id'] = $id;
                 $data['nombre'] = $this->estudiante_model->getNombre($id);
                 $data['dataTable'] = $this->estudiante_model->getHorario($id);  
                 $this->load->view('vistaEstudiante_view', $data);  
