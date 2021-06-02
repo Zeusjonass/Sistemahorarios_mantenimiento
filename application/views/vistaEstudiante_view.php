@@ -5,9 +5,19 @@
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300&display=swap" rel="stylesheet">
-        
         <title>Estudiante</title>
         <link rel="icon" href="<?php echo base_url(); ?>assets/img/uady.png" />
+        <style>
+            table {
+                display: table;
+            }
+            table tr {
+                display: table-cell;
+            }
+            table tr td {
+                display: block;
+            }
+        </style>
     </head>   
     <body>
         <?php
@@ -26,58 +36,75 @@
 
             <div class="row">
                 <div class="col-12 table-responsive">
-                    <table class="table">
-                    <tr>
-                        <th scope="col">Lunes</th>
+                <table class="table">
+                    <tbody>
+                        <tr>
+                        <th><strong>Lunes</strong></th>
                         <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Lunes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
                         ?>
-                    </tr>
-                    <tr>
-                        <th scope="col">Martes</th>
-                        <?php
+                        </tr>
+                        <tr>
+                        <th><strong>Martes</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
-                                if ($rowHorario->Dia=='Martes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                if ($rowHorario->Dia == 'Martes') {
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
                         ?>
-                    </tr>
-                    <tr>
-                        <th scope="col">Miércoles</th>
-                        <?php
+                        </tr>
+                        <tr>
+                        <th><strong>Miércoles</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
-                                if ($rowHorario->Dia=='Miercoles') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                if ($rowHorario->Dia == 'Miercoles') {
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
                         ?>
-                    </tr>
-                    <tr>
-                        <th scope="col">Jueves</th>
-                       <?php
+                        </tr>
+                        <tr>
+                        <th><strong>Jueves</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
-                                if ($rowHorario->Dia=='Jueves') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                if ($rowHorario->Dia == 'Jueves') {
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
                         ?>
-                    </tr>
-                    <tr>
-                        <th scope="col">Viernes</th>
-                       <?php
+                        </tr>
+                        <tr>
+                        <th><strong>Viernes</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
-                                if ($rowHorario->Dia=='Viernes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                if ($rowHorario->Dia == 'Viernes') {
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Profesor: ".$rowHorario->NomProf."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
                         ?>
-                    </tr>
-                    </table>
+                        </tr>
+                    </tbody>
+                </table>
                 </div>
             </div>
         </div>

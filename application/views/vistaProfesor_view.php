@@ -8,6 +8,17 @@
         <title>Profesor</title>
         <link rel="icon" href="<?php echo base_url(); ?>assets/img/uady.png" />
         <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+        <style>
+            table {
+                display: table;
+            }
+            table tr {
+                display: table-cell;
+            }
+            table tr td {
+                display: block;
+            }
+        </style>
     </head>   
     <body>
         <?php
@@ -23,60 +34,77 @@
                     </form>
                 </div>
             </div>
-            <div class="row justify-content-center">
+            <div class="row">
                 <div class="col-12 table-responsive">
-                    <table class="table">
+                <table class="table">
+                    <tbody>
                         <tr>
-                            <th scope="col">Lunes</th>
-                            <?php 
+                        <th><strong>Lunes</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Lunes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
-                            ?>
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
+                        ?>
                         </tr>
                         <tr>
-                            <th scope="col">Martes</th>
-                            <?php 
+                        <th><strong>Martes</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Martes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
-                            ?>
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
+                        ?>
                         </tr>
                         <tr>
-                            <th scope="col">Miércoles</th>
-                            <?php
+                        <th><strong>Miércoles</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Miercoles') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
-                            ?>
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
+                        ?>
                         </tr>
                         <tr>
-                            <th scope="col">Jueves</th>
-                            <?php 
+                        <th><strong>Jueves</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Jueves') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
-                            ?>
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
+                        ?>
                         </tr>
                         <tr>
-                            <th scope="col">Viernes</th>
-                            <?php 
+                        <th><strong>Viernes</strong></th>
+                        <?php 
+                            $i = 0;
                             foreach ($dataTable->result() as $rowHorario) {
                                 if ($rowHorario->Dia == 'Viernes') {
-                                    echo "<td scope='col'>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
+                                    $i++;
+                                    echo "<td>Materia: ".$rowHorario->DescMat."<br>Hora Inicio: ".$rowHorario->HoraInicio."<br>Hora final: ".$rowHorario->HoraFin."<br>Salon: ".$rowHorario->DescSalon."</td>";
                                 }
                             }
-                            ?>
+                            if($i == 0) echo "<td><br>Sin Clases<br></td>";
+                        ?>
                         </tr>
-                    </table>
+                    </tbody>
+                </table>
                 </div>
             </div>
         </div>
