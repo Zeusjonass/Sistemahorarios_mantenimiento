@@ -8,31 +8,63 @@
         
         <title>Registrar horario</title>
         <link rel="icon" href="<?php echo base_url(); ?>assets/img/uady.png" />
-        <script>
-            function errorMessage(num){
-                if (num==1) {
-                    alert("Las clases deben durar 2 horas o menos");
-                }else if (num==2) {
-                    alert("La hora final debe ir después de la hora de inicio");
-                }else if (num==3) {
-                    alert("No pueden haber 2 clases del mismo grupo el mismo día");
-                }else if (num==4) {
-                    alert("Otro grupo tiene el horario deseado");
-                }else if (num==5) {
-                    alert("Se agregó el horario de manera correcta");
-                }
+        <style>
+            #title{
+                margin: 15px 0;
             }
-        </script>
+            .msg{
+                position: absolute;
+                top: 0;
+                width: 100%;
+                border-radius: 0%;
+                padding: 3px; 
+            }
+            .msg-success{
+                background-color: aqua;
+            }
+            .msg-fail{
+                background-color: #FF342A;
+            }
+            .btn{
+                margin: 15px 0;
+            }
+        </style>
     </head>
     <body>
         <?php
         $usuario = $this->session->userdata('usuario');
         if(empty($usuario)) redirect('Login/logout');
+        if (isset($error)){
+            switch($error){
+                case 1: 
+                    $msg = "Las clases deben durar 2 horas o menos";
+                    break;
+                case 2:
+                    $msg = "La hora final debe ir después de la hora de inicio";
+                    break;
+                case 3:
+                    $msg ="No pueden haber 2 clases del mismo grupo el mismo día";
+                    break;
+                case 4:
+                    $msg = "Otro grupo tiene el horario deseado";
+                    break;
+                case 5: 
+                    $msg = "Se actualizó el horario de manera correcta";
+                    break;
+            }
+            $error>4 && $error <8? $success = true : $success = false;
+            if($success){
+                echo "<p class='msg msg-success'>".$msg."</p>";
+            }
+            else{
+                echo "<p class='msg msg-fail'>".$msg."</p>";
+            }
+        }
         ?>
         <div class="container-fluid">
             <div class="row">
                 <div class="col-12 header text-center mt-3 mb-3">
-                    <h3>Registrar un horario</h3>
+                    <h3 id="title">Registrar un horario</h3>
                     <form action="<?php echo base_url(); ?>index.php/administrador/verCursos" method="GET">
                         <button type="submit" class="btn btn-dark float-left">Regresar</button>
                     </form>
@@ -98,18 +130,6 @@
                     </div>
                 </div>
                 </form>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-12 text-center">
-                <?php
-                if (isset($error)) {
-                    $num=$error;
-                ?>
-                <script type="text/javascript">
-                    errorMessage(<?php echo $num; ?>);
-                </script>
-                <?php } ?>
             </div>
         </div>
         </div>

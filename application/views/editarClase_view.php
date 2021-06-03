@@ -29,28 +29,56 @@
 		.formulario h2{
 			color: white;
 		}
+		.msg{
+			text-align: center;
+            position: absolute;
+            top: 0;
+            width: 100%;
+            border-radius: 0%;
+            padding: 3px; 
+        }
+        .msg-success{
+            background-color: aqua;
+        }
+        .msg-fail{
+            background-color: #FF342A;
+        }
+		.btn{
+			margin: 15px 0;
+		}
 	</style>
-	<script>
-            function errorMessage(num){
-                if (num==1) {
-                    alert("Las clases deben durar 2 horas o menos");
-                }else if (num==2) {
-                    alert("La hora final debe ir después de la hora de inicio");
-                }else if (num==3) {
-                    alert("No pueden haber 2 clases del mismo grupo el mismo día");
-                }else if (num==4) {
-                    alert("Otro grupo tiene el horario deseado");
-                }else if (num==5) {
-                    alert("Se actualizó el horario de manera correcta");
-                }
-            }
-        </script>
 </head>
 <body>
 	<?php
 	$usuario = $this->session->userdata('usuario');
-	if(empty($id)) redirect('Login/logout');
-	?>
+	if(empty($usuario)) redirect('Login/logout');
+    if (isset($error)){
+		switch($error){
+			case 1: 
+				$msg = "Las clases deben durar 2 horas o menos";
+				break;
+			case 2:
+				$msg = "La hora final debe ir después de la hora de inicio";
+				break;
+			case 3:
+				$msg ="No pueden haber 2 clases del mismo grupo el mismo día";
+				break;
+			case 4:
+				$msg = "Otro grupo tiene el horario deseado";
+				break;
+			case 5: 
+				$msg = "Se actualizó el horario de manera correcta";
+				break;
+		}
+		$error>4 && $error <8? $success = true : $success = false;
+        if($success){
+            echo "<p class='msg msg-success'>".$msg."</p>";
+        }
+        else{
+            echo "<p class='msg msg-fail'>".$msg."</p>";
+        }
+    }
+    ?>
 	<div class="container-fluid min-vh-100">
 		<div class="row justify-content-center">
 			<div class="col-12 text-center mt-3">
@@ -96,18 +124,6 @@
 				</div>
 			</div>
 		</div>
-		<div class="row">
-            <div class="col-12 text-center">
-                <?php
-                if (isset($error)) {
-                    $num=$error;
-                ?>
-                <script type="text/javascript">
-                    errorMessage(<?php echo $num; ?>);
-                </script>
-                <?php } ?>
-            </div>
-        </div>
 	</div>
 	<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>

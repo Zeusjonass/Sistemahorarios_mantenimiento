@@ -107,17 +107,16 @@ class Administrador extends CI_Controller{
         $this->administrador_model->borrarClase($idClase);
         $data['curso'] = $curso; 
         $data['dataSalon'] = $this->administrador_model->getSalones();
-        $data['dataClase'] = $datosClase;
         //Validación hora inicio vaya antes de hora final
         if($horaInicio > $horaFin){
-            $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
+            $data['dataClase'] = $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
             $data['error'] = 2;
             $this->load->view('editarClase_view', $data);  
         }
         else{
             //Validamos que la diferencia de hora no sea mayor a 2 hrs
             if((strtotime($horaFin) - strtotime($horaInicio)) > 7200){
-                $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
+                $data['dataClase'] = $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
                 $data['error'] = 1;
                 $this->load->view('editarClase_view', $data);  
             }
@@ -125,14 +124,14 @@ class Administrador extends CI_Controller{
                 //Validamos que no haya otra clase de esta materia ese día para este grupo
                 $clasesPorDia = $this->administrador_model->clasesPorDia($dia, $curso);
                 if($clasesPorDia > 0){
-                    $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
+                    $data['dataClase'] = $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
                     $data['error'] = 3;
                     $this->load->view('editarClase_view', $data);  
                 }
                 else{
                     //Validamos que no exista un choque de horarios
                     if(!$this->administrador_model->horarioDisponible($horaInicio, $horaFin, $salon, $curso, $dia)){
-                        $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
+                        $data['dataClase'] = $this->administrador_model->guardarHorario($clase->HoraInicio, $clase->HoraFin, $clase->idSalon, $clase->idCurso, $clase->Dia);
                         $data['error'] = 4;
                         $this->load->view('editarClase_view', $data); 
                     }
